@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gerador de BBCode</title>
-    <link rel="shortcut icon" href="images/fav_icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/fav_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <!-- Bulma Version 0.7.4-->
@@ -18,58 +18,7 @@
 <body>
 
     <section class="hero is-info is-fullheight">
-        <div class="hero-head">
-            <!-- <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="../">
-                            <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
-                        </a>
-                        <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenu" class="navbar-menu">
-                        <div class="navbar-end">
-                            <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
-                                    <span class="icon">
-                                        <i class="fa fa-home"></i>
-                                    </span>
-                                    <span>Home</span>
-                                </a>
-                            </span>
-                            <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
-                                    <span class="icon">
-                                        <i class="fa fa-superpowers"></i>
-                                    </span>
-                                    <span>Examples</span>
-                                </a>
-                            </span>
-                            <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="#">
-                                    <span class="icon">
-                                        <i class="fa fa-book"></i>
-                                    </span>
-                                    <span>Documentation</span>
-                                </a>
-                            </span>
-                            <span class="navbar-item">
-                                <a class="button is-white is-outlined" href="https://github.com/dansup/bulma-templates/blob/master/templates/landing.html">
-                                    <span class="icon">
-                                        <i class="fa fa-github"></i>
-                                    </span>
-                                    <span>View Source</span>
-                                </a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </nav> -->
-        </div>
+    
 
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -87,9 +36,10 @@
                                     <select id="cmbTipoGerador">
                                         <option selected disabled="disabled">Selecione</option>
                                         <option value="1">Filmes</option>
-                                        <option disabled="disabled" value="2">Séries</option>
-                                        <option disabled="disabled" value="3">Músicas</option>
-                                        <option disabled="disabled" value="4">Jogos</option>
+                                        <option value="2">Séries de TV</option>
+                                        <option value="3">Episódio de série de TV</option>
+                                        <option disabled="disabled" value="4">Músicas</option>
+                                        <option disabled="disabled" value="5">Jogos</option>
                                     </select>
                                 </div>
                             </div>
@@ -97,8 +47,6 @@
                                 <button type="button" id="btnTipoGerador" class="button is-primary">Escolher</button>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="box" id="divFilmeSerie" style="display:none">
                         <div class="field has-addons">
@@ -106,7 +54,7 @@
                                 <div class=" is-fullwidth">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input is-primary" id="txtImdbId" type="text" 
+                                            <input class="input is-primary" value="tt1520211" id="txtImdbId" type="text" 
                                                 placeholder="Exemplo: tt4154664">
                                         </div>
                                     </div>
@@ -117,55 +65,6 @@
                                 <button type="button" id="btnLoadImdb" class="button is-primary">Escolher</button>
                             </div>
                         </div>
-                        <!-- <div class="field ">
-                            <div class="control is-expanded">
-                                <div class=" is-fullwidth">
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="input is-primary" id="txtTitulo" type="text"
-                                                placeholder="Título"  disabled="disabled">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field ">
-                            <div class="control is-expanded">
-                                <div class=" is-fullwidth">
-                                    <div class="field">
-                                        <div class="control">
-                                            <input class="input is-primary" id="txtUrlPoster" type="text"
-                                                placeholder="Link direto para a Poster/Cover"  disabled="disabled">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="field ">
-                            <div class="control is-expanded">
-                                <div class=" is-fullwidth">
-                                    <div class="field">
-                                        <div class="control">
-                                            <textarea class="textarea" id="txtDescricao"
-                                                placeholder="Descrição do título"  disabled="disabled"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- <div class="field ">
-                            <div class="control is-expanded">
-                                <div class=" is-fullwidth">
-                                    <div class="field">
-                                        <div class="control">
-                                            <textarea class="textarea" id="txtUrlImagem" rows='6'
-                                                placeholder="Imagens do título, 1 URL por linha.&#13;&#10;Ex:&#13;&#10;https://image.tmdb.org/t/p/original/apIb08fArRCdXXUEHi60MC63X7o.jpg&#13;&#10;https://i.imgur.com/FtdOBF6.jpg"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
                         <button type="button" id="btnGerar" style="display: none" class="button is-fullwidth is-primary">Gerar BBCode</button>
                     </div>
 
