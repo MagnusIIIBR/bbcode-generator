@@ -41,7 +41,7 @@ function bindButtons() {
 
         var txtImdbId = $("#txtImdbId");
         if (txtImdbId.val().trim().length == 0) {
-            bulmaToast.toast({ message: "O código do filme no IMDB é obrigatório" , type: "is-danger", duration: 4000});
+            bulmaToast.toast({ message: "O código do filme no IMDB é obrigatório", type: "is-danger", duration: 4000 });
             return false;
         }
 
@@ -56,13 +56,13 @@ function bindButtons() {
 
         if (selectedTipoGerador == "1" && !isFilme) {
             if (isSerie) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Série de TV', mas relaxa, já arrumei pra você!" , type: "is-alert", duration: 4000});
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Série de TV', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "2";
                 $('#cmbTipoGerador').val("2");
             }
-            
+
             if (isEpisodioSerie) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Episódio de série de TV', mas relaxa, já arrumei pra você!"  , type: "is-alert", duration: 4000});
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Episódio de série de TV', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "3";
                 $('#cmbTipoGerador').val("3");
             }
@@ -70,28 +70,28 @@ function bindButtons() {
 
         if (selectedTipoGerador == "2" && !isSerie) {
             if (isFilme) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Filme', mas relaxa, já arrumei pra você!" , type: "is-alert", duration: 4000 });
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Filme', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "1";
                 $('#cmbTipoGerador').val("1");
             }
-            
+
             if (isEpisodioSerie) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Episódio de série de TV', mas relaxa, já arrumei pra você!"  , type: "is-alert", duration: 4000});
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Episódio de série de TV', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "3";
                 $('#cmbTipoGerador').val("3");
             }
         }
 
-        
+
         if (selectedTipoGerador == "3" && !isEpisodioSerie) {
             if (isFilme) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Filme', mas relaxa, já arrumei pra você!"  , type: "is-alert", duration: 4000});
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Filme', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "1";
                 $('#cmbTipoGerador').val("1");
             }
-            
+
             if (isSerie) {
-                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Série de TV', mas relaxa, já arrumei pra você!" , type: "is-alert", duration: 4000 });
+                bulmaToast.toast({ message: "O código IMDB usado pertence ao tipo 'Série de TV', mas relaxa, já arrumei pra você!", type: "is-alert", duration: 4000 });
                 selectedTipoGerador = "2";
                 $('#cmbTipoGerador').val("2");
             }
@@ -104,7 +104,7 @@ function bindButtons() {
 
         $('#btnGerar').show();
 
-        bulmaToast.toast({ message: "Pronto! Basta clicar em Gerar BBCode!"  , type: "is-success", duration: 4000});
+        bulmaToast.toast({ message: "Pronto! Basta clicar em Gerar BBCode!", type: "is-success", duration: 4000 });
 
     });
 
@@ -120,7 +120,7 @@ function bindButtons() {
 
         $('#divBBCode').show();
 
-        bulmaToast.toast({ message: "BBCode gerado! Basta copiar para sua postagem!" , type: "is-success", duration: 4000});
+        bulmaToast.toast({ message: "BBCode gerado! Basta copiar para sua postagem!", type: "is-success", duration: 4000 });
     });
 };
 
@@ -193,13 +193,13 @@ var formatDescricaoBBCode = function () {
     str += "\n[b][align=center]SINOPSE[/align][/b]";
     switch (selectedTipoGerador) {
         case "1":
-            str += "\n[align=center]" + dataFromTMDB.movie_results[0].overview + "[/align]";
+            str += "\n[align=center]" + ((dataFromTMDB.movie_results[0].overview.length == 0) ? "###### SINOPSE NÃO ENCONTRATADA ######" : dataFromTMDB.movie_results[0].overview) + "[/align]";
             break;
         case "2":
-            str += "\n[align=center]" + dataFromTMDB.tv_results[0].overview + "[/align]";
+            str += "\n[align=center]" + ((dataFromTMDB.tv_results[0].overview == 0) ? "###### SINOPSE NÃO ENCONTRATADA ######" : dataFromTMDB.tv_results[0].overview) + "[/align]";
             break;
         case "3":
-            str += "\n[align=center]" + dataFromTMDB.tv_episode_results[0].overview + "[/align]";
+            str += "\n[align=center]" + ((dataFromTMDB.tv_episode_results[0].overview == 0) ? "###### SINOPSE NÃO ENCONTRATADA ######" : dataFromTMDB.tv_episode_results[0].overview) + "[/align]";
             break;
         default:
             break;
@@ -235,7 +235,7 @@ var formatInformacoesBBCode = function () {
     }
     str += "\n[align=center]País de Origem: " + dataFromOMDB.Country + "[/align]";
     str += "\n[align=center]Gêneros: " + dataFromOMDB.Genre + "[/align]";
-    str += "\n[align=center]Site: [url=" + dataFromOMDB.Website + "] Clique aqui [/url][/align]";
+    if (dataFromOMDB.Website != "N/A") str += "\n[align=center]Site: [url=" + dataFromOMDB.Website + "] Clique aqui [/url][/align]";
 
     return str;
 }
