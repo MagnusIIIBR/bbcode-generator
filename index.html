@@ -18,7 +18,7 @@
 <body>
 
     <section class="hero is-info is-fullheight">
-    
+
 
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -35,11 +35,9 @@
                                 <div class="select is-fullwidth">
                                     <select id="cmbTipoGerador">
                                         <option selected disabled="disabled">Selecione</option>
-                                        <option value="1">Filmes</option>
-                                        <option value="2">Séries de TV</option>
-                                        <option value="3">Episódio de série de TV</option>
-                                        <option disabled="disabled" value="4">Músicas</option>
-                                        <option disabled="disabled" value="5">Jogos</option>
+                                        <option value="1">Filmes/Séries/Episódioss</option>
+                                        <option disabled="disabled" value="2">Jogos</option>
+                                        <option disabled="disabled" value="3">Músicas</option>
                                     </select>
                                 </div>
                             </div>
@@ -54,7 +52,7 @@
                                 <div class=" is-fullwidth">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input is-primary" id="txtImdbId" type="text" 
+                                            <input class="input is-primary" id="txtIMDbId" type="text" value="tt4154664"
                                                 placeholder="Exemplo: tt4154664">
                                         </div>
                                     </div>
@@ -65,7 +63,8 @@
                                 <button type="button" id="btnLoadImdb" class="button is-primary">Escolher</button>
                             </div>
                         </div>
-                        <button type="button" id="btnGerar" style="display: none" class="button is-fullwidth is-primary">Gerar BBCode</button>
+                        <button type="button" id="btnGerar" style="display: none"
+                            class="button is-fullwidth is-primary">Gerar BBCode</button>
                     </div>
 
                     <div class="box" id="divBBCode" style="display:none">
@@ -87,7 +86,16 @@
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script async type="text/javascript" src="js/bulma.js"></script>
     <script async type="text/javascript" src="js/bulma-toast.min.js"></script>
-    <script async type="text/javascript" src="js/index.js"></script>
+    <script async type="text/javascript" src="js/baseLib.js"></script>
+    <script async type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
+    <script async type="text/javascript" src="js/indexView.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            console.log('All assets are loaded')
+
+            indexView.bindButtons();
+        });
+    </script>
 </body>
 
 </html>
