@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/bulma.min.css" />
     <link rel="stylesheet" href="css/bulma-pageloader.min.css" />
     <link rel="stylesheet" type="text/css" href="css/landing.css">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
 </head>
 
 <body>
@@ -36,7 +38,7 @@
                                     <select id="cmbTipoGerador">
                                         <option selected disabled="disabled">Selecione</option>
                                         <option value="1">Filmes/Séries/Episódioss</option>
-                                        <option disabled="disabled" value="2">Jogos</option>
+                                        <option value="2">Jogos</option>
                                         <option disabled="disabled" value="3">Músicas</option>
                                     </select>
                                 </div>
@@ -52,8 +54,8 @@
                                 <div class=" is-fullwidth">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input is-primary" id="txtIMDbId" type="text" value="tt4154664"
-                                                placeholder="Exemplo: tt4154664">
+                                            <input class="input is-primary" id="txtIMDbId" type="text"
+                                                   placeholder="Exemplo: tt4154664">
                                         </div>
                                     </div>
 
@@ -63,32 +65,42 @@
                                 <button type="button" id="btnLoadImdb" class="button is-primary">Escolher</button>
                             </div>
                         </div>
-                        <button type="button" id="btnGerar" style="display: none"
-                            class="button is-fullwidth is-primary">Gerar BBCode</button>
                     </div>
 
-                    <div class="box" id="divBBCode" style="display:none">
-                        <div class="field">
+                    <div class="box" id="divJogosSteam" style="display:none">
+                        <div class="field has-addons">
                             <div class="control is-expanded">
-                                <div class="is-fullwidth">
-                                    <textarea class="textarea" id="txtBBCode"></textarea>
+                                <div class=" is-fullwidth">
+                                    <div class="field">
+                                        <div class="control">
+                                            <input class="input is-primary" id="txtSteamId" type="text"
+                                                   placeholder="Exemplo: 730">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
+                            <div class="control">
+                                <button type="button" id="btnLoadSteam" class="button is-primary">Escolher</button>
+                            </div>
                         </div>
-
                     </div>
+
                 </div>
 
+            </div>
+        </div>
     </section>
     <div id="pageLoader" class="pageloader"><span class="title">Pageloader</span></div>
 
 
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script async type="text/javascript" src="js/bulma.js"></script>
-    <script async type="text/javascript" src="js/bulma-toast.min.js"></script>
-    <script async type="text/javascript" src="js/baseLib.js"></script>
-    <script async type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
-    <script async type="text/javascript" src="js/indexView.js"></script>
+    <script type="text/javascript" src="js/bulma.js"></script>
+    <script type="text/javascript" src="js/bulma-toast.min.js"></script>
+    <script type="text/javascript" src="js/baseLib.js"></script>
+    <script type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
+    <script type="text/javascript" src="js/geradorJogosSteam.js"></script>
+    <script type="text/javascript" src="js/indexView.js"></script>
     <script type="text/javascript">
         $(window).on('load', function () {
             console.log('All assets are loaded')

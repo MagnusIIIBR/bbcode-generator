@@ -13,6 +13,11 @@ var baseLib = {
     reformatDate: function (dateStr) {
         dArr = dateStr.split("-");
         return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
+    },
+
+    getYearFromDDMMMYYYY: function (dateStr) {
+        dArr = dateStr.split(" ");
+        return  dArr[2];
     }
 
 

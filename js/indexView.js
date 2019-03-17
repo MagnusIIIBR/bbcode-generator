@@ -8,8 +8,9 @@ var indexView = {
             switch (selectedTipoGerador) {
                 case "1":
                     $('#divFilmeSerie').show();
+                    break;
                 case "2":
-                case "3":
+                    $('#divJogosSteam').show();
                     break;
 
                 default:
@@ -20,19 +21,28 @@ var indexView = {
 
         $('#btnLoadImdb').click(function () {
 
-            $('#pageLoader').addClass("is-active");
-
-            GeradorFilmeSerieEpisodio.IMDbId =  $('#txtIMDbId').val().trim();
+            GeradorFilmeSerieEpisodio.IMDbId = $('#txtIMDbId').val().trim();
             GeradorFilmeSerieEpisodio.Validar();
 
-            $('#pageLoader').removeClass("is-active");
+        });
 
-            // $('#btnGerar').show();
+        $('#btnLoadSteam').click(function () {
 
-            // bulmaToast.toast({ message: "Pronto! Basta clicar em Gerar BBCode!", type: "is-success", duration: 4000 });
-            // bulmaToast.toast({ message: "BBCode gerado! Basta copiar para sua postagem!", type: "is-success", duration: 4000 });
+            GeradorJogosSteam.SteamId = $('#txtSteamId').val().trim();
+            GeradorJogosSteam.Validar();
 
         });
+
+        jQuery.ajaxSetup({
+	        beforeSend: function () {
+                $('#pageLoader').addClass("is-active");
+	        },
+	        complete: function () {
+                $('#pageLoader').removeClass("is-active");
+	        },
+	        success: function () { }
+        });
+
 
     }
 }
