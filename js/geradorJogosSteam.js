@@ -20,6 +20,8 @@ var GeradorJogosSteam = {
 
         this.Data.Steam = this.SteamService(this.SteamId.trim())[this.SteamId];
 
+        console.log(this.Data.Stam);
+
         if (this.Data.Steam.success ==  false ) {
             bulmaToast.toast({ message: "O código do jogo na STEAM informado é inválido!", type: "is-danger", duration: 4000 });
             return false;
@@ -42,9 +44,13 @@ var GeradorJogosSteam = {
             ${this.InserirSeparador()}
             ${this.InserirInformacao()}
             ${this.InserirSeparador()}
+            ${this.InserirRequisitos()}
+            ${this.InserirSeparador()}
             ${this.InserirCritica()}
             ${this.InserirSeparador()}
             ${this.InserirScreenshots()}
+            ${this.InserirSeparador()}
+            ${this.InserirVideo()}
 
             `;
 
@@ -88,6 +94,27 @@ var GeradorJogosSteam = {
         return str;
     },
 
+    InserirRequisitos: function () {
+        var str = "";
+        str += "\n[b][align=center]REQUISITOS[/align][/b]";
+        if(this.Data.Steam.data.pc_requirements.length > 0){
+            str += `\n[align=center]PC[/align]`;
+            str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.minimum} [/align]`;
+        }
+
+        if(this.Data.Steam.data.mac_requirements.length > 0){
+            str += `\n[align=center]MAC[/align]`;
+            str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.minimum} [/align]`;
+        }
+
+        if(this.Data.Steam.data.linux_requirements.length > 0){
+            str += `\n[align=center]LINUX[/align]`;
+            str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.minimum} [/align]`;
+        }
+
+        return str;
+    },
+
     InserirCritica: function () {
         var str = "";
 
@@ -113,8 +140,15 @@ var GeradorJogosSteam = {
         return str;
     },
 
-    InserirTrailer: function () {
+    InserirVideo: function () {
+        var str = "";
+        str += "\n[b][align=center]SCREENSHOTS[/align][/b]";
 
+        this.Data.Steam.data.screenshots.forEach(element => {
+            str += `\n[align=center][img] ${element.path_full.trim()}[/img][/align]`
+        });
+
+        return str;
     },
 
     InserirAgradecaComente: function () {

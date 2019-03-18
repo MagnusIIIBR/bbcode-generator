@@ -1,11 +1,13 @@
 var indexView = {
-    selectedTipoGerador: 0,
 
     bindButtons: function () {
-        $('#btnTipoGerador').click(function () {
-            selectedTipoGerador = $('#cmbTipoGerador').val();
+        $('#cmbTipoGerador').change(function () {
 
-            switch (selectedTipoGerador) {
+            $('#divFilmeSerie').hide();
+            $('#divJogosSteam').hide();
+            $('#divPlayStore').hide();
+
+            switch ($(this).val()) {
                 case "1":
                     $('#divFilmeSerie').show();
                     break;
