@@ -52,6 +52,17 @@ var indexView = {
 				$('#pageLoader').removeClass("is-active");
 			});
 
+			$('.tooltip').tooltipster({
+				theme: 'tooltipster-shadow',
+				animation: 'fade',
+				delay: 100,
+				trigger: 'click',
+				side:	['right']
+
+			 
+			});
+
+
 
 	}
 };

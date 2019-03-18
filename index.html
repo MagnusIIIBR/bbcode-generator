@@ -12,6 +12,8 @@
 	<!-- Bulma Version 0.7.4-->
 	<link rel="stylesheet" href="css/bulma.min.css" />
 	<link rel="stylesheet" href="css/bulma-pageloader.min.css" />
+	<link rel="stylesheet" href="css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" href="css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-shadow.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/landing.css">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 </head>
@@ -48,7 +50,7 @@
 								<div class=" is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtIMDbId" type="text" placeholder="Exemplo: tt4154664">
+											<input class="input is-primary" id="txtIMDbId" type="text"  placeholder="Exemplo: tt4154664">
 										</div>
 									</div>
 
@@ -96,6 +98,92 @@
 						</div>
 					</div>
 
+					<div class="box" id="divGenerico">
+						<div class="field">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<input class="input is-primary tooltip" id="txtGenericoTitulo" type="text" title="Título do Post" placeholder="Exemplo: Curso de Pilotagem do Barrichello">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<input class="input is-primary" id="txtGenericoUrlCapa" type="text" placeholder="Exemplo: www.imagem.com.br/capa.jpg">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<input class="input is-primary" id="txtGenericoUrlCapa" type="text" placeholder="Exemplo: www.imagem.com.br/capa.jpg">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<textarea class="textarea" rows="6" id="txtGenericoDescricao" type="text" placeholder="Exemplo: Curso para ensinar entusiastas do mundo automobilistico e blablablablablala"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="field has-addons">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="control">
+										<input class="input is-primary" name="txtGenericoInfo" type="text" placeholder="Exemplo: Ano de Lançamento: 2015">
+									</div>
+								</div>
+							</div>
+							<div class="control">
+								<button type="button" name="btnGenericoAddInfo" class="button is-secondary">+</button>
+							</div>
+						</div>
+						<div class="field has-addons">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="control">
+										<input class="input is-primary" name="txtGenericoUrlScreenshot" type="text" placeholder="Exemplo: wwww.testeimagem.com.br/123.jpg">
+									</div>
+								</div>
+
+							</div>
+							<div class="control">
+								<button type="button" name="btnGenericoScreenshotAddInfo" class="button is-secondary">+</button>
+							</div>
+						</div>
+						<div class="field">
+							<div class="control is-expanded">
+								<div class="is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<input class="input is-primary" id="txtGenericoUrlVideo" type="text" placeholder="Exemplo: www.youtube.com.br/asdasqlwmelmla">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="control">
+							<button class="button is-primary" type="button" name="btnGenerar">Gerar</button>
+						</div>
+					</div>
+
 				</div>
 
 			</div>
@@ -107,6 +195,7 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/bulma.js"></script>
 	<script type="text/javascript" src="js/bulma-toast.min.js"></script>
+	<script type="text/javascript" src="js/tooltipster.bundle.min.js"></script>
 
 	<script type="text/javascript" src="js/baseLib.js"></script>
 	<script type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
