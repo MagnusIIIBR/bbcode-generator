@@ -12,7 +12,9 @@ var indexView = {
                 case "2":
                     $('#divJogosSteam').show();
                     break;
-
+                case "3":
+                    $('#divPlayStore').show();
+                    break;
                 default:
                     break;
             }
@@ -33,14 +35,22 @@ var indexView = {
 
         });
 
+        $('#btnLoadPlayStore').click(function () {
+
+            GeradorAplicativoPlayStore.GooglePlayId = $('#txtPlayStoreId').val().trim();
+            GeradorAplicativoPlayStore.Validar();
+
+        });
+        
+
         jQuery.ajaxSetup({
-	        beforeSend: function () {
+            beforeSend: function () {
                 $('#pageLoader').addClass("is-active");
-	        },
-	        complete: function () {
+            },
+            complete: function () {
                 $('#pageLoader').removeClass("is-active");
-	        },
-	        success: function () { }
+            },
+            success: function () { }
         });
 
 
