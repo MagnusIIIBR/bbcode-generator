@@ -13,35 +13,34 @@ var GeradorJogosSteam = {
 
 	Validar: function () {
 
-		if (this.SteamId.trim().length == 0 || this.SteamId == null) {
+		try {
+			baseLib.showLoading(true);
+
+			if (this.SteamId.trim().length == 0 || this.SteamId == null) {
+				throw new Error("O código do jogo na STEAM é obrigatório!");
+			
+			}
+			this.Data.Steam = this.SteamService(this.SteamId.trim())[this.SteamId];
+
+			if (this.Data.Steam.success == false) {
+				throw new Error("O código do jogo na STEAM informado é inválido!");
+			}
+
+			baseLib.copyToClipboard(this.GerarBBCode());
 			bulmaToast.toast({
-				message: "O código do jogo na STEAM é obrigatório",
+				message: "BBCode copiado para a área de transferência!",
+				type: "is-success",
+				duration: 4000
+			});
+		} catch (error) {
+			bulmaToast.toast({
+				message: error.message,
 				type: "is-danger",
 				duration: 4000
 			});
-			return false;
+		} finally {
+			baseLib.showLoading(false);
 		}
-
-		this.Data.Steam = this.SteamService(this.SteamId.trim())[this.SteamId];
-
-		console.log(this.Data.Stam);
-
-		if (this.Data.Steam.success == false) {
-			bulmaToast.toast({
-				message: "O código do jogo na STEAM informado é inválido!",
-				type: "is-danger",
-				duration: 4000
-			});
-			return false;
-		}
-
-		baseLib.copyToClipboard(this.GerarBBCode());
-		bulmaToast.toast({
-			message: "BBCode copiado para a área de transferência!",
-			type: "is-success",
-			duration: 4000
-		});
-
 
 	},
 
@@ -161,7 +160,7 @@ var GeradorJogosSteam = {
 		} else {
 			str += `\n[align=center][b]###### SEM CRÍTICA ######[/b][/align]`;
 		}
-	
+
 		return str;
 	},
 
@@ -179,7 +178,6 @@ var GeradorJogosSteam = {
 			async: false,
 			success: function (data) {
 				result = data;
-				console.log(result);
 			}
 		});
 		return result;

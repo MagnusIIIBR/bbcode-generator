@@ -1,24 +1,32 @@
 var baseLib = {
 
-    copyToClipboard : function (str) {
-        const el = document.createElement('textarea');
-        el.value = str;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-        // debugger
-    },
+	copyToClipboard: function (str) {
+		const el = document.createElement('textarea');
+		el.value = str;
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+		// debugger
+	},
 
-    reformatDate: function (dateStr) {
-        dArr = dateStr.split("-");
-        return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
-    },
+	reformatDate: function (dateStr) {
+		dArr = dateStr.split("-");
+		return dArr[2] + "/" + dArr[1] + "/" + dArr[0].substring(2);
+	},
 
-    getYearFromDDMMMYYYY: function (dateStr) {
-        dArr = dateStr.split(" ");
-        return  dArr[2];
-    }
+	getYearFromDDMMMYYYY: function (dateStr) {
+		dArr = dateStr.split(" ");
+		return dArr[2];
+	},
+
+	showLoading: function (yesNo) {
+		let loading = $('#pageLoader');
+		
+		console.log("Loading: " + yesNo);
+
+		yesNo ? loading.addClass("is-active") : loading.removeClass("is-active");
+	}
 
 
 };
