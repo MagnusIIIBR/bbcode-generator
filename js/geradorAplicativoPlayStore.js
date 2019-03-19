@@ -105,7 +105,7 @@ var GeradorAplicativoPlayStore = {
         str += "\n[b][align=center]SCREENSHOTS[/align][/b]";
 
         this.Data.GooglePlay.screenshots.forEach(element => {
-            str += `\n[align=center][img] ${element.trim()}[/img][/align]`
+            str += `\n[align=center][img]${element.trim()}[/img][/align]`
         });
 
         return str;

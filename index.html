@@ -126,24 +126,13 @@
 								<div class="is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtGenericoUrlCapa" type="text" placeholder="Exemplo: www.imagem.com.br/capa.jpg">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="field">
-							<div class="control is-expanded">
-								<div class="is-fullwidth">
-									<div class="field">
-										<div class="control">
 											<textarea class="textarea" rows="6" id="txtGenericoDescricao" type="text" placeholder="Exemplo: Curso para ensinar entusiastas do mundo automobilistico e blablablablablala"></textarea>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="field has-addons">
+						<div class="field has-addons" id="divInfoGenerico">
 							<div class="control is-expanded">
 								<div class="is-fullwidth">
 									<div class="control">
@@ -152,7 +141,7 @@
 								</div>
 							</div>
 							<div class="control">
-								<button type="button" name="btnGenericoAddInfo" class="button is-secondary">+</button>
+								<button type="button" id="btnGenericoAddInfo" class="button is-secondary">+</button>
 							</div>
 						</div>
 						<div class="field has-addons">
@@ -201,6 +190,7 @@
 	<script type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
 	<script type="text/javascript" src="js/geradorJogosSteam.js"></script>
 	<script type="text/javascript" src="js/geradorAplicativoPlayStore.js"></script>
+	<script type="text/javascript" src="js/geradorGenerico.js"></script>
 	<script type="text/javascript" src="js/indexView.js"></script>
 	<script type="text/javascript">
 		$(window).on('load', function () {

@@ -26,7 +26,9 @@ var baseLib = {
 		console.log("Loading: " + yesNo);
 
 		yesNo ? loading.addClass("is-active") : loading.removeClass("is-active");
-	}
+	},
+
+	
 
 
 };

@@ -6,13 +6,28 @@ var GeradorGenerico = {
 	},
 
 	Data: {
-		Steam: null
+		Titulo: null,
+		UrlCapa: null,
+		Descricao: null,
+		Info:[],
+		Screenshot:[],
+		Video: null
+	},
+
+	CarregarCampos: function(){
+		this.Data.Titulo = $('#txtGenericoTitulo').val();
+		this.Data.UrlCapa = $('#txtGenericoUrlCapa').val();
+		this.Data.Descricao = $('#txtGenericoDescricao').val();
+
+
+		this.Data.Video = $('#txtGenericoUrlVideo').val();
 	},
 
 	Validar: function () {
 
+
+
 		try {
-			baseLib.showLoading(true);
 
 			if (this.SteamId.trim().length == 0 || this.SteamId == null) {
 				throw new Error("O código do jogo na STEAM é obrigatório!");
@@ -37,7 +52,6 @@ var GeradorGenerico = {
 				duration: 4000
 			});
 		} finally {
-			baseLib.showLoading(false);
 		}
 
 	},
@@ -165,6 +179,10 @@ var GeradorGenerico = {
 	InserirAgradecaComente: function () {
 
 	},
+
+	// InserirFieldInfo:function(){
+	// 	// $('<div />').
+	// };
 
 	SteamService: function () {
 		var urlRequest = "https://vindicator.com.br/services/steam?id=" + this.SteamId;
