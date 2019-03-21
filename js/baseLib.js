@@ -1,5 +1,14 @@
 var baseLib = {
 
+    StaticUrl: {
+		urlSeparatorImage: "https://i.imgur.com/e998H1V.png",
+        urlMetacriticLogoImage: "https://i.imgur.com/hzTTczo.png",
+        urlIMDBLogoImage: "https://i.imgur.com/Eeb73Th.png",
+        urlRottenTomatoesLogoImage: "https://i.imgur.com/IVyct9e.png",
+        baseUrlTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/",
+        urlPlayStoreLogoImage: "https://i.imgur.com/W4czhNc.png"
+    },
+
 	copyToClipboard: function (str) {
 		const el = document.createElement('textarea');
 		el.value = str;

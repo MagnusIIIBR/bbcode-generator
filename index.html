@@ -36,8 +36,8 @@
 								<div class="select is-fullwidth">
 									<select id="cmbTipoGerador">
 										<option selected disabled="disabled">Selecione</option>
-										<option value="1">Filmes/Séries/Episódioss</option>
-										<option value="2">Jogos</option>
+										<option value="1">Filmes/Séries/Episódios (IMDb)</option>
+										<option value="2">Jogos de PC (STEAM)</option>
 										<option value="3">Aplicativo Android (Play Store)</option>
 									</select>
 								</div>
@@ -50,7 +50,8 @@
 								<div class=" is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtIMDbId" type="text"  placeholder="Exemplo: tt4154664">
+											<input class="input is-primary" id="txtIMDbId" type="text"
+												placeholder="Exemplo: tt4154664">
 										</div>
 									</div>
 
@@ -68,7 +69,8 @@
 								<div class=" is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtSteamId" type="text" placeholder="Exemplo: 730">
+											<input class="input is-primary" id="txtSteamId" type="text"
+												placeholder="Exemplo: 730">
 										</div>
 									</div>
 
@@ -86,7 +88,8 @@
 								<div class=" is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtPlayStoreId" type="text" placeholder="Exemplo: com.chucklefish.stardewvalley">
+											<input class="input is-primary" id="txtPlayStoreId" type="text"
+												placeholder="Exemplo: com.chucklefish.stardewvalley">
 										</div>
 									</div>
 
@@ -98,13 +101,15 @@
 						</div>
 					</div>
 
-					<div class="box" id="divGenerico">
+					<div class="box" id="divGenerico" style="display: none;">
 						<div class="field">
 							<div class="control is-expanded">
 								<div class="is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary tooltip" id="txtGenericoTitulo" type="text" title="Título do Post" placeholder="Exemplo: Curso de Pilotagem do Barrichello">
+											<input class="input is-primary tooltip" id="txtGenericoTitulo" type="text"
+												title="Título do Post"
+												placeholder="Exemplo: Curso de Pilotagem do Barrichello">
 										</div>
 									</div>
 								</div>
@@ -115,7 +120,8 @@
 								<div class="is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtGenericoUrlCapa" type="text" placeholder="Exemplo: www.imagem.com.br/capa.jpg">
+											<input class="input is-primary" id="txtGenericoUrlCapa" type="text"
+												placeholder="Exemplo: www.imagem.com.br/capa.jpg">
 										</div>
 									</div>
 								</div>
@@ -126,35 +132,39 @@
 								<div class="is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<textarea class="textarea" rows="6" id="txtGenericoDescricao" type="text" placeholder="Exemplo: Curso para ensinar entusiastas do mundo automobilistico e blablablablablala"></textarea>
+											<textarea class="textarea" rows="6" id="txtGenericoDescricao" type="text"
+												placeholder="Exemplo: Curso para ensinar entusiastas do mundo automobilistico e blablablablablala"></textarea>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="field has-addons" id="divInfoGenerico">
-							<div class="control is-expanded" data-repeater-list="inner-list">
+						<div class="field has-addons inner-list" id="divInfoGenerico" data-repeater-list="inner-list">
+							<div class="control is-expanded">
 								<div class="is-fullwidth" data-repeater-item>
 									<div class="control">
-										<input class="input is-primary" name="txtGenericoInfo" type="text" placeholder="Exemplo: Ano de Lançamento: 2015" />
+										<input class="input is-primary" name="txtGenericoInfo" type="text"
+											placeholder="Exemplo: Ano de Lançamento: 2015" />
 									</div>
 								</div>
 							</div>
 							<div class="control">
-								<button type="button" id="btnGenericoAddInfo" class="button is-secondary">+</button>
+									<input data-repeater-create type="button" value="Add" class="button is-secondary"/>
 							</div>
 						</div>
 						<div class="field has-addons">
 							<div class="control is-expanded">
 								<div class="is-fullwidth">
 									<div class="control">
-										<input class="input is-primary" name="txtGenericoUrlScreenshot" type="text" placeholder="Exemplo: wwww.testeimagem.com.br/123.jpg">
+										<input class="input is-primary" name="txtGenericoUrlScreenshot" type="text"
+											placeholder="Exemplo: wwww.testeimagem.com.br/123.jpg">
 									</div>
 								</div>
 
 							</div>
 							<div class="control">
-								<button type="button" name="btnGenericoScreenshotAddInfo" class="button is-secondary">+</button>
+								<button type="button" name="btnGenericoScreenshotAddInfo"
+									class="button is-secondary">+</button>
 							</div>
 						</div>
 						<div class="field">
@@ -162,7 +172,8 @@
 								<div class="is-fullwidth">
 									<div class="field">
 										<div class="control">
-											<input class="input is-primary" id="txtGenericoUrlVideo" type="text" placeholder="Exemplo: www.youtube.com.br/asdasqlwmelmla">
+											<input class="input is-primary" id="txtGenericoUrlVideo" type="text"
+												placeholder="Exemplo: www.youtube.com.br/asdasqlwmelmla">
 										</div>
 									</div>
 								</div>
@@ -185,6 +196,7 @@
 	<script type="text/javascript" src="js/bulma.js"></script>
 	<script type="text/javascript" src="js/bulma-toast.min.js"></script>
 	<script type="text/javascript" src="js/tooltipster.bundle.min.js"></script>
+	<script type="text/javascript" src="js/jquery.repeater.min.js"></script>
 
 	<script type="text/javascript" src="js/baseLib.js"></script>
 	<script type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
@@ -197,6 +209,20 @@
 			console.log('All assets are loaded')
 
 			indexView.bindButtons();
+
+				$('.repeater').repeater({
+					// (Required if there is a nested repeater)
+					// Specify the configuration of the nested repeaters.
+					// Nested configuration follows the same format as the base configuration,
+					// supporting options "defaultValues", "show", "hide", etc.
+					// Nested repeaters additionally require a "selector" field.
+					repeaters: [{
+						// (Required)
+						// Specify the jQuery selector for this nested repeater
+						selector: '.inner-list'
+					}]
+				});
+
 		});
 
 	</script>
