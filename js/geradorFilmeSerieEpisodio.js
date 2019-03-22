@@ -4,14 +4,6 @@ var GeradorFilmeSerieEpisodio = {
 
     TipoGerador: null,
 
-    StaticUrl: {
-        urlSeparatorImage: "https://i.imgur.com/e998H1V.png",
-        urlMetacriticLogoImage: "https://i.imgur.com/hzTTczo.png",
-        urlIMDBLogoImage: "https://i.imgur.com/Eeb73Th.png",
-        urlRottenTomatoesLogoImage: "https://i.imgur.com/IVyct9e.png",
-        baseUrlTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"
-    },
-
     Data: {
         OMDb: null,
         TMDb: null
@@ -64,17 +56,11 @@ var GeradorFilmeSerieEpisodio = {
 
     GerarBBCode: function () {
         var str = `
-            ${this.InserirSeparador()}
             ${this.InserirTitulo()}
-            ${this.InserirSeparador()}
             ${this.InserirCapa()}
-            ${this.InserirSeparador()}
             ${this.InserirSinopse()}
-            ${this.InserirSeparador()}
             ${this.InserirInformacao()}
-            ${this.InserirSeparador()}
             ${this.InserirElenco()}
-            ${this.InserirSeparador()}
             ${this.InserirCritica()}
             `;
 
@@ -82,21 +68,18 @@ var GeradorFilmeSerieEpisodio = {
 
     },
 
-    InserirSeparador: function () {
-        return `[align=center][img]${this.StaticUrl.urlSeparatorImage}[/img][/align]`;
-    },
-
     InserirTitulo: function () {
-        var retorno = "";
+        var retorno = `[align=center][img]${baseLib.StaticUrl.urlSeparadorApresentaImage}[/img][/align]`;
+
         switch (this.TipoGerador) {
             case "1":
-                retorno += "[b][align=center]" + this.Data.TMDb.movie_results[0].title + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += "\n[b][align=center]" + this.Data.TMDb.movie_results[0].title + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
                 break;
             case "2":
-                retorno += "[b][align=center]" + this.Data.TMDb.tv_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += "\n[b][align=center]" + this.Data.TMDb.tv_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
                 break;
             case "3":
-                retorno += "[b][align=center]" + this.Data.TMDb.tv_episode_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += "\n[b][align=center]" + this.Data.TMDb.tv_episode_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
             default:
                 break;
         }
@@ -108,19 +91,23 @@ var GeradorFilmeSerieEpisodio = {
     },
 
     InserirCapa: function () {
+        var retorno = `[align=center][img]${baseLib.StaticUrl.urlSeparadorCapaImage}[/img][/align]`;
+
         switch (this.TipoGerador) {
             case "1":
-                return `[align=center][img]${this.StaticUrl.baseUrlTMDbPoster + this.Data.TMDb.movie_results[0].poster_path}[/img][/align]`;
+                retorno += `\n[align=center][img]${baseLib.StaticUrl.urlBaseTMDbPoster + this.Data.TMDb.movie_results[0].poster_path}[/img][/align]`;
                 break;
             case "2":
-                return `[align=center][img]${this.StaticUrl.baseUrlTMDbPoster + this.Data.TMDb.tv_results[0].poster_path}[/img][/align]`;
+                retorno += `\n[align=center][img]${baseLib.StaticUrl.urlBaseTMDbPoster + this.Data.TMDb.tv_results[0].poster_path}[/img][/align]`;
                 break;
             case "3":
-                return `[align=center][img]${this.StaticUrl.baseUrlTMDbPoster + this.Data.TMDb.tv_episode_results[0].still_path}[/img][/align]`;
+                retorno += `\n[align=center][img]${baseLib.StaticUrl.urlBaseTMDbPoster + this.Data.TMDb.tv_episode_results[0].still_path}[/img][/align]`;
                 break;
             default:
                 break;
         };
+
+        return retorno;
     },
 
     InserirSinopse: function () {
@@ -141,7 +128,7 @@ var GeradorFilmeSerieEpisodio = {
         }
 
 
-        var str = `[b][align=center]SINOPSE[/align][/b]
+        var str = `[align=center][img]${baseLib.StaticUrl.urlSeparadorSinopseImage}[/img][/align]
                     ${sinopse}`;
 
 
@@ -150,7 +137,7 @@ var GeradorFilmeSerieEpisodio = {
 
     InserirInformacao: function () {
         var str = "";
-        str += "\n[b][align=center]INFORMAÇÕES[/align][/b]";
+        str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorFichaTecnicaImage}[/img][/align]`;
 
         switch (this.TipoGerador) {
             case "1":
@@ -170,7 +157,7 @@ var GeradorFilmeSerieEpisodio = {
 
         str += `\n[align=center]Tempo: ${this.Data.OMDb.Runtime} [/align]`;
 
-        if (selectedTipoGerador == "1") str += `\n[align=center]Produtora: ${this.Data.OMDb.Production} [/align]`;
+        if (this.TipoGerador == "1") str += `\n[align=center]Produtora: ${this.Data.OMDb.Production} [/align]`;
 
         str += `\n[align=center]País de Origem: ${this.Data.OMDb.Country} [/align]`;
         str += `\n[align=center]Gêneros: ${this.Data.OMDb.Genre} [/align]`;
@@ -181,7 +168,7 @@ var GeradorFilmeSerieEpisodio = {
 
     InserirElenco: function () {
         var str = "";
-        str += "\n[b][align=center]ELENCO[/align][/b]";
+        str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorElencoImage}[/img][/align]`;
 
         this.Data.OMDb.Actors.split(',').forEach(element => {
             str += `\n[align=center] ${element.trim()} - ATOR/ATRIZ[/align]`
@@ -200,24 +187,24 @@ var GeradorFilmeSerieEpisodio = {
         var str = "";
 
         if (this.Data.OMDb.Ratings.length > 0) {
-            str += "\n[b][align=center]CRÍTICA[/align][/b]";
+            str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorCriticasImage}[/img][/align]`;
 
             this.Data.OMDb.Ratings.forEach(element => {
                 switch (element.Source) {
                     case "Internet Movie Database":
-                        str += `\n[align=center][img]${this.StaticUrl.urlIMDBLogoImage}[/img][/align]`;
+                        str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoIMDbImage}[/img][/align]`;
                         str += `\n[align=center][b][url=https://www.imdb.com/title/${this.Data.OMDb.imdbID}]${element.Value.trim()}[/b][/url][/align]`
                         break;
 
                     case "Rotten Tomatoes":
-                        str += `\n[align=center][img]${this.StaticUrl.urlRottenTomatoesLogoImage}[/img][/align]`;
-                        str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
+                    str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoRottenTomatoesImage}[/img][/align]`;
+                    str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
 
                         break;
 
                     case "Metacritic":
-                        str += `\n[align=center][img]${this.StaticUrl.urlMetacriticLogoImage}[/img][/align]`;
-                        str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
+                    str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoMetacriticImage}[/img][/align]`;
+                    str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
                         break;
                     default:
                         break;

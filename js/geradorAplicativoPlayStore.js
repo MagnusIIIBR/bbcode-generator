@@ -2,11 +2,6 @@ var GeradorAplicativoPlayStore = {
 
     GooglePlayId: null,
 
-    StaticUrl: {
-        urlSeparatorImage: "https://i.imgur.com/59YOBMq.png",
-        urlPlayStoreLogoImage: "https://i.imgur.com/W4czhNc.png"
-    },
-
     Data: {
         GooglePlay: null
     },
@@ -33,41 +28,32 @@ var GeradorAplicativoPlayStore = {
 
     GerarBBCode: function () {
         var str = `
-            ${this.InserirSeparador()}
             ${this.InserirTitulo()}
-            ${this.InserirSeparador()}
             ${this.InserirCapa()}
-            ${this.InserirSeparador()}
             ${this.InserirSinopse()}
-            ${this.InserirSeparador()}
             ${this.InserirInformacao()}
-            ${this.InserirSeparador()}
             ${this.InserirCritica()}
-            ${this.InserirSeparador()}
             ${this.InserirScreenshots()}
-
             `;
 
         return str;
 
     },
 
-    InserirSeparador: function () {
-        return `[align=center][img]${this.StaticUrl.urlSeparatorImage}[/img][/align]`;
-    },
-
     InserirTitulo: function () {
-        var str = `[b][align=center] ${this.Data.GooglePlay.title} [/align][/b]`;
+        var str = ` [align=center][img]${baseLib.StaticUrl.urlSeparadorApresentaImage}[/img][/align]
+                    [b][align=center] ${this.Data.GooglePlay.title} [/align][/b]`;
 
         return str;
     },
 
     InserirCapa: function () {
-        return `[align=center][img]${this.Data.GooglePlay.headerImage}[/img][/align]`;
+        return `[align=center][img]${baseLib.StaticUrl.urlSeparadorCapaImage}[/img][/align]
+                [align=center][img]${this.Data.GooglePlay.headerImage}[/img][/align]`;
     },
 
     InserirSinopse: function () {
-        var str = `[b][align=center]SINOPSE[/align][/b]
+        var str = `[align=center][img]${baseLib.StaticUrl.urlSeparadorSinopseImage}[/img][/align]
                    [align=center]${this.Data.GooglePlay.description}[/align]`;
 
 
@@ -76,7 +62,7 @@ var GeradorAplicativoPlayStore = {
 
     InserirInformacao: function () {
         var str = "";
-        str += "\n[b][align=center]INFORMAÇÕES[/align][/b]";
+        str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorFichaTecnicaImage}[/img][/align]`;
         str += `\n[align=center]Data de Lançamento: ${this.Data.GooglePlay.released} [/align]`;
         str += `\n[align=center]Gêneros: ${this.Data.GooglePlay.genre} [/align]`;
         str += `\n[align=center]Desenvolvedores: ${this.Data.GooglePlay.developer} [/align]`;
@@ -89,9 +75,9 @@ var GeradorAplicativoPlayStore = {
     InserirCritica: function () {
         var str = "";
 
-        str += "\n[b][align=center]CRÍTICA[/align][/b]";
+        str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorCriticasImage}[/img][/align]`;
         if (this.Data.GooglePlay.scoreText != "") {
-            str += `\n[align=center][img]${this.StaticUrl.urlPlayStoreLogoImage}[/img][/align]`;
+            str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoGooglePlayStoreImage}[/img][/align]`;
             str += `\n[align=center][b][url=${this.Data.GooglePlay.url}]${this.Data.GooglePlay.scoreText}/5[/b][/url][/align]`
         } else {
             str += `\n[align=center][b]###### SEM CRÍTICA ######[/b][/align]`
@@ -102,11 +88,12 @@ var GeradorAplicativoPlayStore = {
 
     InserirScreenshots: function () {
         var str = "";
-        str += "\n[b][align=center]SCREENSHOTS[/align][/b]";
+        str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorScreenshotImage}[/img][/align]`;
+        str += `\n[align=center]################# INSERIR IMAGENS AQUI ]#################[/align]`;
 
-        this.Data.GooglePlay.screenshots.forEach(element => {
-            str += `\n[align=center][img]${element.trim()}[/img][/align]`
-        });
+        // this.Data.GooglePlay.screenshots.forEach(element => {
+        //     str += `\n[align=center][img]${element.trim()}[/img][/align]`
+        // });
 
         return str;
     },
