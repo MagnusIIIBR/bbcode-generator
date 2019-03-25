@@ -65,12 +65,12 @@ var GeradorJogosSteam = {
 
 	InserirCapa: function () {
 		return `[align=center][img]${baseLib.StaticUrl.urlSeparadorCapaImage}[/img][/align]
-				[align=center][img]${this.Data.Steam.data.header_image}[/img][/align]`;
+				[align=center][img]${baseLib.clearUrl(this.Data.Steam.data.header_image)}[/img][/align]`;
 	},
 
 	InserirSinopse: function () {
 		var str = `[align=center][img]${baseLib.StaticUrl.urlSeparadorDescricaoImage}[/img][/align]
-                   [align=center]${this.Data.Steam.data.about_the_game}[/align]`;
+                   [align=center]${baseLib.parseHtmlToBBCode(this.Data.Steam.data.about_the_game)}[/align]`;
 
 
 		return str;
@@ -94,17 +94,17 @@ var GeradorJogosSteam = {
 		str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorRequisitosmage}[/img][/align]`;
 		if (this.Data.Steam.data.pc_requirements.length  != null  || this.Data.Steam.data.pc_requirements != undefined) {
 			str += `\n[align=center]PC[/align]`;
-			str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.pc_requirements.minimum} [/align]`;
+			str += `\n[align=center] ${baseLib.parseHtmlToBBCode(this.Data.Steam.data.pc_requirements.minimum)} [/align]`;
 		}
 
 		if (this.Data.Steam.data.mac_requirements != null  || this.Data.Steam.data.mac_requirements != undefined) {
 			str += `\n[align=center]MAC[/align]`;
-			str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.mac_requirements.minimum} [/align]`;
+			str += `\n[align=center] ${baseLib.parseHtmlToBBCode(this.Data.Steam.data.mac_requirements.minimum)} [/align]`;
 		}
 
 		if (this.Data.Steam.data.linux_requirements.length != null  || this.Data.Steam.data.linux_requirements != undefined) {
 			str += `\n[align=center]LINUX[/align]`;
-			str += `\n[align=center][b]Mínimo[/b]: ${this.Data.Steam.data.linux_requirements.minimum} [/align]`;
+			str += `\n[align=center] ${baseLib.parseHtmlToBBCode(this.Data.Steam.data.linux_requirements.minimum)} [/align]`;
 		}
 
 		return str;
@@ -129,7 +129,7 @@ var GeradorJogosSteam = {
 		str += `\n[align=center][img]${baseLib.StaticUrl.urlSeparadorScreenshotImage}[/img][/align]`;
 
 		this.Data.Steam.data.screenshots.forEach(element => {
-			str += `\n[align=center][img] ${element.path_full.trim()}[/img][/align]`;
+			str += `\n[align=center][img]${baseLib.clearUrl(element.path_full.trim())}[/img][/align]`;
 		});
 
 		return str;
