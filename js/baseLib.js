@@ -18,7 +18,7 @@ var baseLib = {
 		urlLogoRottenTomatoesImage: "https://i.postimg.cc/rppL76qC/rotten.png",
 		urlLogoGooglePlayStoreImage: "https://i.postimg.cc/pLRvYh7S/google.png",
 
-		urlBaseTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/",
+		urlBaseTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2",
 
 		urlServiceSteam:  "https://staging.vindicator.com.br/steam?id=",
 		urlServiceOMDb:  "https://www.omdbapi.com/?i=",
