@@ -108,7 +108,7 @@ var GeradorAplicativoPlayStore = {
 
 
     GooglePlayService: function () {
-        var urlRequest = "https://vindicator.com.br/services/googleplay?id=" + this.GooglePlayId;
+        var urlRequest = baseLib.StaticUrl.urlServicePlayStore + this.GooglePlayId;
 
         var result = null;
 

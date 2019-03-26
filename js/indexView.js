@@ -17,6 +17,9 @@ var indexView = {
 				case "3":
 					$('#divPlayStore').show();
 					break;
+				case "4":
+					$('#divLastFM').show();
+					break;
 				default:
 					break;
 			}
@@ -27,21 +30,23 @@ var indexView = {
 
 			GeradorFilmeSerieEpisodio.IMDbId = $('#txtIMDbId').val().trim();
 			GeradorFilmeSerieEpisodio.Validar();
-
 		});
 
 		$('#btnLoadSteam').click(function () {
 
 			GeradorJogosSteam.SteamId = $('#txtSteamId').val().trim();
 			GeradorJogosSteam.Validar();
-
 		});
 
 		$('#btnLoadPlayStore').click(function () {
 
 			GeradorAplicativoPlayStore.GooglePlayId = $('#txtPlayStoreId').val().trim();
 			GeradorAplicativoPlayStore.Validar();
+		});
 
+		$('#btnLoadLastFM').click(function () {
+			geradorAlbumLastFM.urlLastFM = $('#txtLastFMUrl').val().trim();
+			geradorAlbumLastFM.Validar();
 		});
 
 		$(document)
@@ -52,15 +57,15 @@ var indexView = {
 				$('#pageLoader').removeClass("is-active");
 			});
 
-			$('.tooltip').tooltipster({
-				theme: 'tooltipster-shadow',
-				animation: 'fade',
-				delay: 100,
-				trigger: 'click',
-				side:	['right']
+		$('.tooltip').tooltipster({
+			theme: 'tooltipster-shadow',
+			animation: 'fade',
+			delay: 100,
+			trigger: 'click',
+			side: ['right']
 
-			 
-			});
+
+		});
 
 
 

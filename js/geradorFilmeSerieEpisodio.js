@@ -226,7 +226,7 @@ var GeradorFilmeSerieEpisodio = {
 
 
     OMDbService: function () {
-        var urlRequest = "https://www.omdbapi.com/?i=" + this.IMDbId + "&y=&plot=full&apikey=b045eb33";
+        var urlRequest = baseLib.StaticUrl.urlServiceOMDb + this.IMDbId + "&y=&plot=full&apikey=b045eb33";
 
         var result = null;
 
@@ -241,7 +241,7 @@ var GeradorFilmeSerieEpisodio = {
     },
 
     TMDbService: function () {
-        var urlRequest = "https://api.themoviedb.org/3/find/" + this.IMDbId + "?api_key=650fbb9313eab50f47bc5981772e8218&language=pt-BR&external_source=imdb_id";
+        var urlRequest = baseLib.StaticUrl.urlServiceTMDb + this.IMDbId + "?api_key=650fbb9313eab50f47bc5981772e8218&language=pt-BR&external_source=imdb_id";
 
         var result = null;
 
