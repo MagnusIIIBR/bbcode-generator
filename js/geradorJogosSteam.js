@@ -153,7 +153,7 @@ var GeradorJogosSteam = {
 	},
 
 	SteamService: function () {
-		var urlRequest = "https://vindicator.com.br/services/steam?id=" + this.SteamId;
+		var urlRequest = baseLib.StaticUrl.urlServiceSteam + this.SteamId;
 
 		var result = null;
 

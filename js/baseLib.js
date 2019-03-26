@@ -18,7 +18,13 @@ var baseLib = {
 		urlLogoRottenTomatoesImage: "https://i.postimg.cc/rppL76qC/rotten.png",
 		urlLogoGooglePlayStoreImage: "https://i.postimg.cc/pLRvYh7S/google.png",
 
-		urlBaseTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"
+		urlBaseTMDbPoster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2",
+
+		urlServiceSteam:  "https://staging.vindicator.com.br/steam?id=",
+		urlServiceOMDb:  "https://www.omdbapi.com/?i=",
+		urlServiceTMDb:  "https://api.themoviedb.org/3/find/",
+		urlServicePlayStore:  "https://staging.vindicator.com.br/googleplay?id=",
+		urlServiceLastFM:  "https://staging.vindicator.com.br/lastfm?id=",
 	},
 
 	copyToClipboard: function (str) {
@@ -57,12 +63,12 @@ var baseLib = {
 		}
 	},
 
-	parseHtmlToBBCode: function(html){
-		
+	parseHtmlToBBCode: function (html) {
+
 		html = html.replace(/<pre(.*?)>(.*?)<\/pre>/gmi, "$2");
 
 		html = html.replace(/<h[1-7](.*?)>(.*?)<\/h[1-7]>/, "\n$2\n");
-	
+
 		//paragraph handling:
 		//- if a paragraph opens on the same line as another one closes, insert an extra blank line
 		//- opening tag becomes two line breaks
@@ -70,7 +76,7 @@ var baseLib = {
 		// html += html.replace(/<\/p><p/<\/p>\n<p/gi;
 		// html += html.replace(/<p[^>]*>/\n\n/gi;
 		// html += html.replace(/<\/p>//gi;
-	
+
 		html = html.replace(/<br(.*?)>/gi, "\n");
 		html = html.replace(/<textarea(.*?)>(.*?)<\/textarea>/gmi, "\$2");
 		html = html.replace(/<b>/gi, "[b]");
@@ -95,29 +101,49 @@ var baseLib = {
 		html = html.replace(/<\/div>/gi, "\n");
 		html = html.replace(/<td(.*?)>/gi, " ");
 		html = html.replace(/<tr(.*?)>/gi, "\n");
-	
+
 		html = html.replace(/<img(.*?)src="(.*?)"(.*?)>/gi, "[img]$2[/img]");
 		html = html.replace(/<a(.*?)href="(.*?)"(.*?)>(.*?)<\/a>/gi, "[url=$2]$4[/url]");
-	
+
 		html = html.replace(/<head>(.*?)<\/head>/gmi, "");
 		html = html.replace(/<object>(.*?)<\/object>/gmi, "");
 		html = html.replace(/<script(.*?)>(.*?)<\/script>/gmi, "");
 		html = html.replace(/<style(.*?)>(.*?)<\/style>/gmi, "");
 		html = html.replace(/<title>(.*?)<\/title>/gmi, "");
 		html = html.replace(/<!--(.*?)-->/gmi, "\n");
-	
+
 		html = html.replace(/\/\//gi, "/");
 		html = html.replace(/http:\//gi, "http://");
-	
+
 		html = html.replace(/<(?:[^>'"]*|(['"]).*?\1)*>/gmi, "");
-		html = html.replace(/\r\r/gi, ""); 
+		html = html.replace(/\r\r/gi, "");
 		html = html.replace(/\[img]\//gi, "[img]");
 		html = html.replace(/\[url=\//gi, "[url=");
-	
+
 		html = html.replace(/(\S)\n/gi, "$1 ");
-	
+
 		return html;
+	},
+
+	//https://stackoverflow.com/questions/3733227/javascript-seconds-to-minutes-and-seconds
+	fancyTimeFormat: function (time) {
+		// Hours, minutes and seconds
+		var hrs = ~~(time / 3600);
+		var mins = ~~((time % 3600) / 60);
+		var secs = ~~time % 60;
+
+		// Output like "1:01" or "4:03:59" or "123:03:59"
+		var ret = "";
+
+		if (hrs > 0) {
+			ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+		}
+
+		ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+		ret += "" + secs;
+		return ret;
 	}
+
 
 
 

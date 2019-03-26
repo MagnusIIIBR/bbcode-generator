@@ -39,6 +39,7 @@
 										<option value="1">Filmes/Séries/Episódios (IMDb)</option>
 										<option value="2">Jogos de PC (STEAM)</option>
 										<option value="3">Aplicativo Android (Play Store)</option>
+										<option value="4">Álbum de música (LastFM)</option>
 									</select>
 								</div>
 							</div>
@@ -97,6 +98,25 @@
 							</div>
 							<div class="control">
 								<button type="button" id="btnLoadPlayStore" class="button is-primary">Escolher</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="box" id="divLastFM" style="display:none">
+						<div class="field has-addons">
+							<div class="control is-expanded">
+								<div class=" is-fullwidth">
+									<div class="field">
+										<div class="control">
+											<input class="input is-primary" id="txtLastFMUrl" type="text"
+												placeholder="Exemplo: https://www.last.fm/pt/music/Alan Walker/Different World">
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="control">
+								<button type="button" id="btnLoadLastFM" class="button is-primary">Escolher</button>
 							</div>
 						</div>
 					</div>
@@ -202,6 +222,7 @@
 	<script type="text/javascript" src="js/geradorFilmeSerieEpisodio.js"></script>
 	<script type="text/javascript" src="js/geradorJogosSteam.js"></script>
 	<script type="text/javascript" src="js/geradorAplicativoPlayStore.js"></script>
+	<script type="text/javascript" src="js/geradorAlbumLastFM.js"></script>
 	<script type="text/javascript" src="js/geradorGenerico.js"></script>
 	<script type="text/javascript" src="js/indexView.js"></script>
 	<script type="text/javascript">
