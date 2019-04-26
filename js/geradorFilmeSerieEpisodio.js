@@ -73,21 +73,19 @@ var GeradorFilmeSerieEpisodio = {
 
         switch (this.TipoGerador) {
             case "1":
-                retorno += "\n[b][align=center]" + this.Data.TMDb.movie_results[0].title + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += `\n[b][align=center]${this.Data.TMDb.movie_results[0].title + this.Data.OMDb.Title}[/align][/b]`;
                 break;
             case "2":
-                retorno += "\n[b][align=center]" + this.Data.TMDb.tv_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += `\n[b][align=center]${this.Data.TMDb.tv_results[0].name + this.Data.OMDb.Title}[/align][/b]`;
                 break;
             case "3":
-                retorno += "\n[b][align=center]" + this.Data.TMDb.tv_episode_results[0].name + " (" + this.Data.OMDb.Title + ")" + "[/align][/b]";
+                retorno += `\n[b][align=center]${this.Data.TMDb.tv_episode_results[0].name + this.Data.OMDb.Title}[/align][/b]`;
             default:
                 break;
         }
+        retorno += `[b][align=center] (-- ${this.Data.OMDb.Year} --) [/align][/b]`
 
-        var str = `${retorno}
-                    [b][align=center] (-- ${this.Data.OMDb.Year} --) [/align][/b]`;
-
-        return str;
+        return retorno;
     },
 
     InserirCapa: function () {
@@ -197,14 +195,14 @@ var GeradorFilmeSerieEpisodio = {
                         break;
 
                     case "Rotten Tomatoes":
-                    str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoRottenTomatoesImage}[/img][/align]`;
-                    str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
+                        str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoRottenTomatoesImage}[/img][/align]`;
+                        str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
 
                         break;
 
                     case "Metacritic":
-                    str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoMetacriticImage}[/img][/align]`;
-                    str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
+                        str += `\n[align=center][img]${baseLib.StaticUrl.urlLogoMetacriticImage}[/img][/align]`;
+                        str += `\n[align=center][b]${element.Value.trim()}[/b][/align]`
                         break;
                     default:
                         break;
