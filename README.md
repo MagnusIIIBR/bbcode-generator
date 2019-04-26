@@ -97,3 +97,7 @@ Apps/Jogos (Google Play Store)
 - Refatoração das rotas para pesquisa de jogos steam
 - Criação do gerador para aplicativos android baseado na Play Store.
 
+1.4.0
+- Refatoração do código
+- Adição de novas imagens como separadores
+- Adição de novas logos de crítica (IMDb, RottenTomatoes, Metacritic, Play Store)
