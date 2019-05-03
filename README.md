@@ -73,9 +73,6 @@ Apps/Jogos (Google Play Store)
 - Inserido novas validações para caso o tipo de geração seja diferente do que o código IMDb retornou
 
 1.1.1: 
-- Adicionado a geração de Séries
-- Adicionado a geração de Episódios de Séries
-- Inserido novas validações para caso o tipo de geração seja diferente do que o código IMDb retornou
 - Limpeza do código retirando comentários desnecessários
 - Padronização das mensagens de alerta
 
